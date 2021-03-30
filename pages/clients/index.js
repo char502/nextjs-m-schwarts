@@ -1,9 +1,44 @@
+import Link from 'next/link';
+
 function ClientsPage() {
+
+  const clients = [
+    {id: 'max', name: 'Maximilian'},
+    {id: 'manu', name: 'Manuel'},
+  ];
+
   return (
     <div>
       <h1>The Clients Page</h1>
+      <ul>
+       {/* {clients.map((client) => (
+        <>
+        <li key={client.id}>
+         <Link href={`/clients/${client.id}`}>{client.name}</Link>
+        </li>
+       </>
+       ))} */}
+       {/* another way to do this is as below */}
+       {
+         clients.map((client) => (
+          
+          <li key={client.id}>
+           <Link 
+           href={{
+             pathname: "/clients/[id]",
+             query: { id: client.id},
+           }} >
+             {client.name}
+           </Link>
+          </li>
+         
+         ))}
+      </ul>
     </div>
-  )
-}
+     ); 
+  }
 
 export default ClientsPage;
+
+
+{/* the 'max' is used as an interpreted value on the [id].js folder (as no other folders are called Max) */}
