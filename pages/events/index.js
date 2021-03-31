@@ -1,16 +1,31 @@
-
-import { getAllEvents } from '../../dummy-data'
+import { useRouter } from 'next/router';
+import { Fragment } from 'react';
+import { getAllEvents } from '../../dummy-data';
+import EventList from '../../components/events/event-list';
+import EventsSearch from './events-search';
 
 function AllEventsPage() {
+  const events = getAllEvents()
 
-  const allEvents = getAllEvents()
+  const router = useRouter()
+  // All react hooks need to be called directly in your component function 
+  // NOT in any nested block statements
 
-  console.log(allEvents)
+  function findEventsHandler(year, month) {
+
+    const fullPath = `/events/${year}/${month}`;
+
+    console.log(fullPath)
+
+    router.push(fullPath)
+  }
 
   return (
-    <div>
+    <Fragment>
       <h1>All Events</h1>
-    </div>
+      <EventsSearch onSearch={findEventsHandler} />
+      <EventList items={events} />
+    </Fragment>
   )
 }
 
