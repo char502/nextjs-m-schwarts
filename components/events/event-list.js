@@ -6,8 +6,6 @@ function EventList(props) {
 
   const { items } = props;
 
-  console.log(items)
-
   return (
     <ul className={classes.list}>
       {items.map(event => 
