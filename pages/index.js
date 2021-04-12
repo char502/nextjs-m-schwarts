@@ -1,4 +1,3 @@
-// import { getFeaturedEvents } from '../dummy-data'
 import { getFeaturedEvents } from '../helpers/api-util'
 import EventList from '../components/events/event-list'
 
@@ -19,7 +18,7 @@ export async function getStaticProps() {
     props: {
       featuredEvents: featuredEvents
     },
-    revalidate: 10
+    revalidate: 1800
   }
 }
 

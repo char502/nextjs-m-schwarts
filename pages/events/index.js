@@ -1,17 +1,13 @@
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
-import { getAllEvents } from '../../dummy-data';
+import { getAllEvents } from '../../helpers/api-util'
 import EventList from '../../components/events/event-list';
 import EventsSearch from './events-search';
 
 function AllEventsPage(props) {
-  // const events = getAllEvents()
-
-  const { events } = props
-
-  console.log(events)
-
   const router = useRouter()
+  const { events } = props;
+  
   // All react hooks need to be called directly in your component function 
   // NOT in any nested block statements
 
@@ -32,26 +28,14 @@ function AllEventsPage(props) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(
-    'https://events-nextjs-data-fetching-default-rtdb.firebaseio.com/events.json'
-  )
-  const data = await response.json();
 
-  const transformedEvents = [];
+  const events = await getAllEvents();
 
-  for (const key in data) {
-    transformedEvents.push({
-      id: key,
-      ...data[key]
-    })
-  }
-
-  console.log(transformedEvents)
-  
   return {
     props: {
-      events: transformedEvents
-    }
+      events: events
+    },
+    revalidate: 60
   }
 }
 
