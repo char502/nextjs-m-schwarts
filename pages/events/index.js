@@ -1,4 +1,8 @@
-function events() {
-  return <div>This is the events page</div>;
+function AllEventsPage() {
+  return (
+    <div>
+      <div>All Events</div>
+    </div>
+  );
 }
-export default events;
+export default AllEventsPage;
