@@ -1,7 +1,14 @@
+import { getAllEvents } from '../../dummy-data';
+import EventList from '../../components/events/event-list';
+
 function AllEventsPage() {
+  const events = getAllEvents();
+
+  console.log(events);
+
   return (
     <div>
-      <div>All Events</div>
+      <EventList items={events} />
     </div>
   );
 }
