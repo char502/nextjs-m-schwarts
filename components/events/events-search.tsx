@@ -1,11 +1,11 @@
-import { useRef } from 'react';
+import { RefObject, useRef } from 'react';
 
 import Button from './ui/button';
 import classes from './events-search.module.css';
 
-function EventsSearch(props) {
-  const yearInputRef = useRef();
-  const monthInputRef = useRef();
+function EventsSearch(props: any): JSX.Element {
+  const yearInputRef: RefObject<HTMLSelectElement> = useRef();
+  const monthInputRef: RefObject<HTMLSelectElement> = useRef();
 
   function submitHandler(e) {
     e.preventDefault();
@@ -15,7 +15,6 @@ function EventsSearch(props) {
     // this then allow us to access the value property
     const selectedYear = yearInputRef.current.value;
     const selectedMonth = monthInputRef.current.value;
-    // console.log(selectedYear, selectedMonth);
 
     // don't have to call it onSearch, can call it whatever you like
     props.onSearch(selectedYear, selectedMonth);

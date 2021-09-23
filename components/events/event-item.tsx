@@ -5,10 +5,16 @@ import ArrowRightIcon from '../icons/arrow-right-icon';
 
 import classes from './event-item.module.css';
 
-function EventItem(props) {
+function EventItem(props: {
+  title: string;
+  image: string;
+  date: string;
+  location: string;
+  id: string;
+}): JSX.Element {
   const { title, image, date, location, id } = props;
 
-  const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
+  const humanReadableDate: string = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
@@ -16,7 +22,7 @@ function EventItem(props) {
 
   const formattedAddress = location.replace(', ', '\n');
 
-  const exploreLink = `/events/${id}`;
+  const exploreLink: string = `/events/${id}`;
 
   return (
     <li className={classes.item}>

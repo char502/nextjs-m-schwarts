@@ -1,7 +1,9 @@
-import { Fragment } from 'react';
+import { Fragment, ReactChild, ReactFragment, ReactPortal } from 'react';
 import MainHeader from './main-header';
 
-function Layout(props) {
+function Layout(props: {
+  children: boolean | ReactChild | ReactFragment | ReactPortal;
+}) {
   return (
     <Fragment>
       <MainHeader />

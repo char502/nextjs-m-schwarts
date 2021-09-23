@@ -1,8 +1,9 @@
 import EventItem from './event-item';
+import { IEventProps } from '../../dummy-data';
 
 import classes from './event-list.module.css';
 
-function EventList(props) {
+function EventList(props: any): JSX.Element {
   const { items } = props;
 
   return (

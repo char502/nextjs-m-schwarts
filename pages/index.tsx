@@ -1,8 +1,10 @@
 import { getFeaturedEvents } from '../dummy-data';
 import EventList from '../components/events/event-list';
 
-function HomePage() {
-  const featuredEvents = getFeaturedEvents();
+import { IEventProps } from '../dummy-data';
+
+function HomePage(): JSX.Element {
+  const featuredEvents: IEventProps[] = getFeaturedEvents();
 
   return (
     <div>
