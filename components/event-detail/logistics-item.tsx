@@ -1,6 +1,15 @@
+import React, { ReactChild, SVGProps } from 'react';
 import classes from './logistics-item.module.css';
 
-function LogisticsItem(props: { children?: any; icon?: any }) {
+interface logisticsProps {
+  children?: ReactChild;
+  icon?: any;
+}
+
+const LogisticsItem: React.FC<logisticsProps> = (props: {
+  children?: ReactChild;
+  icon?: any;
+}) => {
   const { icon: Icon } = props;
 
   return (
@@ -11,6 +20,6 @@ function LogisticsItem(props: { children?: any; icon?: any }) {
       <span className={classes.content}>{props.children}</span>
     </li>
   );
-}
+};
 
 export default LogisticsItem;

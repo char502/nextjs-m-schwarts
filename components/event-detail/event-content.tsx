@@ -2,7 +2,7 @@ import { ReactChild, ReactFragment, ReactPortal } from 'react';
 import classes from './event-content.module.css';
 
 function EventContent(props: {
-  children: boolean | ReactChild | ReactFragment | ReactPortal;
+  children: boolean | ReactChild | ReactFragment;
 }) {
   return <section className={classes.content}>{props.children}</section>;
 }

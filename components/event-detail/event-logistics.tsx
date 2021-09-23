@@ -1,14 +1,21 @@
+import React from 'react';
 import AddressIcon from '../icons/address-icon';
 import DateIcon from '../icons/date-icon';
 import LogisticsItem from './logistics-item';
 import classes from './event-logistics.module.css';
+import { IEventProps } from '../../dummy-data';
 
-function EventLogistics(props: {
+type eventLogisticsProps = Omit<
+  IEventProps,
+  'id' | 'title' | 'description' | 'location' | 'isFeatured'
+> & {
   date: string;
   address: string;
   image: string;
   imageAlt: string;
-}): JSX.Element {
+};
+
+const EventLogistics: React.FC<eventLogisticsProps> = (props): JSX.Element => {
   const { date, address, image, imageAlt } = props;
 
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
@@ -33,6 +40,6 @@ function EventLogistics(props: {
       </ul>
     </section>
   );
-}
+};
 
 export default EventLogistics;
