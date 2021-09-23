@@ -3,7 +3,7 @@ import MainHeader from './main-header';
 
 function Layout(props: {
   children: boolean | ReactChild | ReactFragment | ReactPortal;
-}) {
+}): JSX.Element {
   return (
     <Fragment>
       <MainHeader />

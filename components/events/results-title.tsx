@@ -1,7 +1,7 @@
 import Button from './ui/button';
 import classes from './results-title.module.css';
 
-function ResultsTitle(props: { date: any }) {
+function ResultsTitle(props: { date: string }): JSX.Element {
   const { date } = props;
 
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {

@@ -7,7 +7,7 @@ function Button(props: {
   link?: string | UrlObject;
   children: {};
   onClick?: MouseEventHandler<HTMLButtonElement>;
-}) {
+}): JSX.Element {
   if (props.link) {
     return (
       <Link href={props.link}>
