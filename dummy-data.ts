@@ -41,6 +41,11 @@ export interface IEventProps {
   isFeatured: boolean;
 }
 
+type TDateFilter = {
+  year: number;
+  month: number;
+};
+
 export function getFeaturedEvents(): IEventProps[] {
   return DUMMY_EVENTS.filter((event) => event.isFeatured);
 }
@@ -49,11 +54,11 @@ export function getAllEvents(): IEventProps[] {
   return DUMMY_EVENTS;
 }
 
-export function getFilteredEvents(dateFilter): IEventProps[] {
+export function getFilteredEvents(dateFilter: TDateFilter): IEventProps[] {
   const { year, month } = dateFilter;
 
-  let filteredEvents = DUMMY_EVENTS.filter((event) => {
-    const eventDate = new Date(event.date);
+  let filteredEvents: IEventProps[] = DUMMY_EVENTS.filter((event) => {
+    const eventDate: Date = new Date(event.date);
     return (
       eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
     );

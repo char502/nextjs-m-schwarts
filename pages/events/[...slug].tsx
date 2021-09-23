@@ -6,21 +6,21 @@ import { getFilteredEvents } from '../../dummy-data';
 import Button from '../../components/events/ui/button';
 import ErrorAlert from '../../components/events/ui/error-alert';
 
-function FilteredEventsPage() {
+function FilteredEventsPage(): JSX.Element {
   const router = useRouter();
 
-  const filterData = router.query.slug;
+  const filterData: string | string[] = router.query.slug;
 
   if (!filterData) {
     return <p className='center'>Loading...</p>;
   }
 
-  const filteredYear = filterData[0];
-  const filteredMonth = filterData[1];
+  const filteredYear: string = filterData[0];
+  const filteredMonth: string = filterData[1];
 
   // Transforms the data from strings to numbers
-  const numYear = +filteredYear;
-  const numMonth = +filteredMonth;
+  const numYear: number = +filteredYear;
+  const numMonth: number = +filteredMonth;
 
   if (
     isNaN(numYear) ||

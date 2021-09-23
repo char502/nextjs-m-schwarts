@@ -6,9 +6,10 @@ import EventLogistics from '../../components/event-detail/event-logistics';
 import EventContent from '../../components/event-detail/event-content';
 import ErrorAlert from '../../components/events/ui/error-alert';
 
-function EventDetailPage() {
+function EventDetailPage(): JSX.Element {
   const router = useRouter();
-  const eventId = router.query.eventId;
+  const eventId = router.query.eventId as string;
+
   const event = getEventById(eventId);
 
   if (!event) {

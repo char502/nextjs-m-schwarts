@@ -5,12 +5,12 @@ import EventsSearch from '../../components/events/events-search';
 
 import { useRouter } from 'next/router';
 
-function AllEventsPage() {
+function AllEventsPage(): JSX.Element {
   const router = useRouter();
   const events = getAllEvents();
 
   function findEventsHandler(year: string, month: string): void {
-    const fullPath = `/events/${year}/${month}`;
+    const fullPath: string = `/events/${year}/${month}`;
 
     router.push(fullPath);
   }
