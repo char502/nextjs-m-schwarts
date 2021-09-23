@@ -7,7 +7,7 @@ const DUMMY_EVENTS = [
     location: 'Somestreet 25, 12345 San Somewhereo',
     date: '2021-05-12',
     image: 'images/coding-event.jpg',
-    isFeatured: false,
+    isFeatured: false
   },
   {
     id: 'e2',
@@ -17,39 +17,51 @@ const DUMMY_EVENTS = [
     location: 'New Wall Street 5, 98765 New Work',
     date: '2021-05-30',
     image: 'images/introvert-event.jpg',
-    isFeatured: true,
+    isFeatured: true
   },
   {
     id: 'e3',
     title: 'Networking for extroverts',
     description:
-      'You probably don\'t need help with networking in general. But focusing your energy correctly - that is something most people can improve.',
+      "You probably don't need help with networking in general. But focusing your energy correctly - that is something most people can improve.",
     location: 'My Street 12, 10115 Broke City',
     date: '2022-04-10',
     image: 'images/extrovert-event.jpg',
-    isFeatured: true,
-  },
+    isFeatured: true
+  }
 ];
 
-export function getFeaturedEvents() {
+export interface IEventProps {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  date: string;
+  image: string;
+  isFeatured: boolean;
+}
+
+export function getFeaturedEvents(): IEventProps[] {
   return DUMMY_EVENTS.filter((event) => event.isFeatured);
 }
 
-export function getAllEvents() {
+export function getAllEvents(): IEventProps[] {
   return DUMMY_EVENTS;
 }
 
-export function getFilteredEvents(dateFilter) {
+export function getFilteredEvents(dateFilter): IEventProps[] {
   const { year, month } = dateFilter;
 
   let filteredEvents = DUMMY_EVENTS.filter((event) => {
     const eventDate = new Date(event.date);
-    return eventDate.getFullYear() === year && eventDate.getMonth() === month - 1;
+    return (
+      eventDate.getFullYear() === year && eventDate.getMonth() === month - 1
+    );
   });
 
   return filteredEvents;
 }
 
-export function getEventById(id) {
+export function getEventById(id: string): IEventProps {
   return DUMMY_EVENTS.find((event) => event.id === id);
 }
